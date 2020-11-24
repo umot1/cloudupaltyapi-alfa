@@ -1,6 +1,6 @@
-const chalk = require("chalk");
-const moment = require("moment");
-const Discord = require("discord.js");
+const chalk = require('chalk')
+const moment = require('moment')
+const kanal = '780769475413803010'
 const log = message => {
   
     console.log(`${chalk.magenta(moment().format('YYYY-MM h:mm:ss'))} ${message}`)
@@ -12,6 +12,8 @@ module.exports = async client => {
     log(chalk.green(`[BOT] Aktif, Komutlar Yüklendi ${tarih}`))
   }
 
-  //LISTENING = DİNLİYOR
-  //WATCHING = İZLİYOR
-  //PLAYING = OYNUYOR 
+//SAFE CODE ❤ #1.5K
+
+//SALVO CODE ❤ #1.6K
+
+//GÜLE GÜLE KULLAN DOSTUM :) ❤ 
