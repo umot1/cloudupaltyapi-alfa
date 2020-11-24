@@ -1,15 +1,16 @@
 const chalk = require("chalk");
 const moment = require("moment");
 const Discord = require("discord.js");
-const main = require('../main.json');
-var prefix = main.prefix;
+const log = message => {
+  
+    console.log(`${chalk.magenta(moment().format('YYYY-MM h:mm:ss'))} ${message}`)
+}
 
 module.exports = async client => {
-  
-  client.user.setPresence({ activity: { name: `Vex Bot @ALFA#9209`, type: "STREAMING", url: "https://discord.gg/cN" } })
-  client.user.setStatus("online");
-  console.log("Aktif!")
-};
+  let tarih = moment().format('l');
+    client.user.setPresence({activity:{name:`@ALFA#9209`},status: 'online'})
+    log(chalk.green(`[BOT] Aktif, Komutlar Yüklendi ${tarih}`))
+  }
 
   //LISTENING = DİNLİYOR
   //WATCHING = İZLİYOR
