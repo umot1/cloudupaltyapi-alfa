@@ -328,7 +328,15 @@ client.on('message', async message => {
   })
   
   });
-  
+  client.on("guildMemberAdd", async member => {
+  let rol = db.fetch(`otorol_${member.guild.id}`)
+  let kanal = db.fetch(`otorollog_${member.guild.id}`)
+if (!rol) return;
+
+member.roles.add(rol)
+
+client.channels.cache.get(kanal).send(`Sunucuya ${member} Adlı Kullanıcı Katıldı. Otomatik Olarak Rolü Verildi!`)
+})
   client.on('message', async message => {
     if(message.channel.type !== 'text') return;
   const reklam = await data.fetch(`reklam.${message.guild.id}`);
