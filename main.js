@@ -10,8 +10,8 @@ const log = message => {
 //Skorsky-Global#3229
 client.ayarlar = { 
 "token": "NzgwNDkwMjU5MTE1ODAyNjU0.X7v2Mg.Z1N5fWcbmoEhRwq8Jsn8FCcnq1o", // token
-"prefix": "c!", // prefix
-"sahip": "582929812285554689",// sahip
+"prefix": "v!", // prefix
+"sahip": "766693805663191061",// sahip
 }
 
 client.commands = new Discord.Collection();
@@ -28,6 +28,47 @@ fs.readdir("./komutlar/", (err, files) => {
     });
   });
 });
+const { Command } = require('discord.js-commando');
+
+module.exports = class BlacklistUserCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'blacklist-user',
+			aliases: ['blacklist'],
+			group: 'admin',
+			memberName: 'blacklist-user',
+			description: 'Kullanıcıyı bottan banlamanızı sağlar.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			},
+
+			args: [
+				{
+					key: 'user',
+					prompt: 'whom do you want to blacklist?\n',
+					type: 'user'
+				}
+			]
+		});
+	}
+
+	hasPermission(msg) {
+		return this.client.isOwner()"766693805663191061"));
+	}
+
+	run(msg, { user }) {
+		if (this.client.isOwner("766693805663191061")) return msg.reply(client.config.customEmojis.basarisiz + ' bot sahibi blackliste alınamaz.');
+
+		const blacklist = this.client.provider.get('global', 'userBlacklist', []);
+		if (blacklist.includes(user.id)) return msg.reply(client.config.customEmojis.basarisiz + ' bu kişi zaten blacklistde bulunuyor.');
+
+		blacklist.push(user.id);
+		this.client.provider.set('global', 'userBlacklist', blacklist);
+
+		return msg.reply(`${client.config.customEmojis.basarili} ${user.tag} bottan banlandı.`);
+	}
+};
 
 client.reload = command => {
   return new Promise((resolve, reject) => {
@@ -105,6 +146,7 @@ logs(client);
 
 client.on('ready', async () => {
 client.user.setStatus('online');
+client.user.setActivity("Vex Bot v!yardım @ALFA#9209")
 console.log(`${client.user.username} ismiyle bağlandım.`);
 })
 
