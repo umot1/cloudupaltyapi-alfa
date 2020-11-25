@@ -47,7 +47,9 @@ client.reload = command => {
     }
   });
 };
-
+client.on("ready", () => {
+client.channels.cache.get("781157413860278286").join()
+})
 client.load = command => {
   return new Promise((resolve, reject) => {
     try {
