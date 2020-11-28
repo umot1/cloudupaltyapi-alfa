@@ -106,7 +106,7 @@ logs(client);
 
 client.on('ready', async () => {
 client.user.setStatus('online');
-client.user.setActivity("Vex Bot v!yardım @ALFA#9209")
+client.user.setActivity("VTR Bot v!yardım @ALFA#9209")
 console.log(`${client.user.username} ismiyle bağlandım.`);
 })
 

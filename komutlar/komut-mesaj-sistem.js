@@ -4,7 +4,7 @@ const data = require('quick.db');
 exports.run = async (client, message, args) => {
 
 message.channel.send(new Discord.MessageEmbed()
-.setTitle('Vex Komut Mesaj Sistem')
+.setTitle('VTR Komut Mesaj Sistem')
 .setDescription(`\`${client.ayarlar.prefix}komut ekle\`
 **Oluşturmak istediğin komut ismini ve cevabı girmen gerekir**
 

@@ -1,7 +1,7 @@
 {
   "name": "hello-express",
   "version": "1.0.0",
-  "description": "VexBot",
+  "description": "VTRBot",
   "main": "main.js",
   "scripts": {
     "watch": "nodemon main.js",
